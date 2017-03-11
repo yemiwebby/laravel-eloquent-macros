@@ -20,14 +20,20 @@
 
         @foreach($users as $user)
             <h2>{{ $user->name }}</h2>
-            <small>{{ $user->email }}</small>
-            <i> {{ $user->name }}'s posts </i>
-            <br>
-            @foreach($user->posts as $post)
-                <h4> {{ $post->post }}</h4>
-                <small> Created at: {{ $post->created_at }}</small>
-                <small> Updated at: {{ $post->updated_at }}</small>
-            @endforeach
+            <p><small>{{ $user->email }}</small></p>
+            <div class="well">
+                <h4> Latest Post</h4>
+
+                {{ $user->lastPost->post }}
+            </div>
+            <div>
+                <h4>All Posts </h4>
+                @foreach($user->posts as $post)
+                    <h4> {{ $post->post }}</h4>
+                    <small> Created at: {{ $post->created_at }}</small>
+                    <small> Updated at: {{ $post->updated_at }}</small>
+                @endforeach
+            </div>
             <hr>
         @endforeach
 

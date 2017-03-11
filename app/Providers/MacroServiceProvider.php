@@ -19,7 +19,7 @@ class MacroServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        HasMany::macro('hasOne', function(){
+        HasMany::macro('toHasOne', function(){
            return new HasOne(
                $this->getQuery(),
                $this->getParent(),
